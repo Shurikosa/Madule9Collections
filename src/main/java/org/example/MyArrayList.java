@@ -10,8 +10,6 @@ public class MyArrayList <E>  {
 
     private int size;
 
-    ArrayList list = new ArrayList<>();
-
     public MyArrayList(int initCapacity){
         if (initCapacity <= 0){
             throw new IllegalArgumentException();
