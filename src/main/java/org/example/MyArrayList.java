@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.*;
 
-public class MyArrayList <E>  {
+public class MyArrayList <E> implements MyList<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -19,7 +19,9 @@ public class MyArrayList <E>  {
     public MyArrayList(){
         this(DEFAULT_CAPACITY);
     }
-    public void add( E element) {
+
+
+    public void add(Object element) {
         resizeIfNeeded();
         elements[size] = element;
         size++;
@@ -33,23 +35,24 @@ public class MyArrayList <E>  {
         }
     }
 
-
+    @Override
     public void remove(int index) {
         Objects.checkIndex(index,size);
         System.arraycopy(elements,index+1, elements,index,size-index-1);
         size--;
     }
+    @Override
     public int size() {
         return size;
     }
 
-
+    @Override
     public void clear() {
         size = 0;
         elements = new Object[DEFAULT_CAPACITY];
     }
 
-
+    @Override
     public E get(int index) {
         Objects.checkIndex(index,size);
         return (E) elements[index];
