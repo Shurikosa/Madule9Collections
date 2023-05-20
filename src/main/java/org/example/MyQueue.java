@@ -47,6 +47,8 @@ public class MyQueue<E> {
     public E poll(){
         E toReturn = head.getItem();
         head = head.getNext();
+        size--;
         return toReturn;
+
     }
 }
